@@ -23,8 +23,8 @@
 	SystemJS.import('jquery').then(function($){
         SystemJS.import('index').then(function(m){
             $(function(){
+            	var h=new $.thumb($('#j_finger'));
                 $('#j_finger').on('click',function(){
-                	var h=new $.thumb($('#j_finger'));
                     h.plus1();
                 })
             })
