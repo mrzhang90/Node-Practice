@@ -18,17 +18,17 @@
 	</div>
 </div>
 <script src="lib/system.js"></script>
-<script src="app/app.js"></script>
+<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="app/tool.js"></script>
 <script type="text/javascript">
-	SystemJS.import('jquery').then(function($){
-        SystemJS.import('index').then(function(m){
-            $(function(){
-            	var h=new $.thumb($('#j_finger'));
-                $('#j_finger').on('click',function(){
-                    h.plus1();
-                })
-            })
+	SystemJS.config({
+	    baseURL: 'app/'
+	})
+	SystemJS.import('index_new.js').then(function(m){
+		$.extend({
+		    thumb:m.default
 		})
+		new $.thumb($('#j_finger')).plus1()
 	})
 </script>
 </body>

@@ -14,7 +14,7 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: ['http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js','app/index.js','app/index_new.js','test/appSpec.js'],
+    files: ['test/appSpec.js','app/tool.js'],
 
 
     // list of files to exclude
@@ -23,7 +23,7 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors:  {'app/index.js': 'coverage'},
+    preprocessors:  {'app/tool.js': 'coverage'},
 
 
     // test results reporter to use
