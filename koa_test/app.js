@@ -33,18 +33,9 @@ app.use(router(_ => {
     });
     
   })
-  _.post('/name/:id', async(ctx, next) => {
-    ctx.body = await ctx.render('post');
-  })
+  // _.post('/name/:id', async(ctx, next) => {
+  //   ctx.body = await ctx.render('post');
+  // })
 }))
-
-// 为给定 ID 的 user 创建请求
-// axios.get('http://10.0.1.167/')
-//   .then(function (response) {
-//       console.log(response);
-//   })
-//   .catch(function (error) {
-//       console.log(error);
-//   });
 
 app.listen(3000);
