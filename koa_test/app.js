@@ -20,7 +20,7 @@ app.context.render = co.wrap(render({
 // app.use(async ctx => ctx.body = await ctx.render('index'));
 app.use(router(_ => {
   _.get('/index/index', async(ctx, next) => {
-     ctx.body = await ctx.render('index');
+     ctx.render('index');
   })
   _.get('/clickFinger', async(ctx, next) => {
      // ctx.body = await ctx.render('index');
