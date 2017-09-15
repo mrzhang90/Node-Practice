@@ -1,8 +1,8 @@
 {
-  "name": "koa_test",
+  "name": "5_koa",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,10 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "co": "^4.6.0",
+    "co-body": "^5.1.1",
     "koa": "^2.3.0",
+    "koa-parse-json": "^1.0.1",
+    "koa-simple-router": "^0.2.0",
+    "koa-static": "^4.0.1",
     "koa-swig": "^2.2.1",
-    "path": "^0.12.7",
-    "render": "^0.1.4",
-    "var": "^0.3.1"
+    "path": "^0.12.7"
   }
 }
