@@ -1,0 +1,17 @@
+{
+  "name": "webframework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "start": "cross-env NODE_ENV=development supervisor ./src/nodeuii/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^5.1.3",
+    "koa": "^2.4.1",
+    "lodash": "^4.17.4"
+  }
+}

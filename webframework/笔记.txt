@@ -1,0 +1,13 @@
+目录
+	src:所有的文件夹都放到这里
+		web
+			前端的文件
+		webapp
+			vue用到的
+		nodeuii
+			config
+				local.js
+					开发阶段
+				config.js
+					线上阶段
+			app.js
