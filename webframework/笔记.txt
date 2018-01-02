@@ -11,3 +11,22 @@
 				config.js
 					线上阶段
 			app.js
+				入口文件
+
+import报错
+	方案1.
+		Node更新到最新版本
+	方案2.
+		gulp
+			引入gulp的两种方案
+				1.dev下引用
+					../node_modules/.bin/gulp
+				2.全局gulp
+cross-env
+	让命令在各个平台工作，可以使用cross-env
+gulp-prepack
+	prepack和rollup相似
+	去掉没用的代码
+lodash
+	非常有用的库，前端提纯的时候要用到的库
+	后端一样有用

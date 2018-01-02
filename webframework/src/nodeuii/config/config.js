@@ -1,3 +1,4 @@
+//本地引入，方便做合并，判断是开发或者线上环境，然后来做合并
 import local from './local';
 import path from 'path';
 import _ from 'lodash';
@@ -12,7 +13,7 @@ let config={
 	'staticDir':path.join(__dirname,'../','assets'),
 	'env':process.env.NODE_ENV//"development"开发模式 production生产模式
 }
-if(!config.env || config.env == "development"){
+if(!config.env || config.env == "development"){//开发模式
 	config = _.extend(config,local);
 }else{
 	config = _.extend(config,server)
