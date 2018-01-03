@@ -10,8 +10,21 @@
 					开发阶段
 				config.js
 					线上阶段
+			controllers
+				路由
+			modules
+				跟后台数据请求
+			middleware
+				中间件
+					错误处理
+			views
+				静态模板
+			assets
+				静态资源
 			app.js
 				入口文件
+		build
+			gulp生成
 
 import报错
 	方案1.
@@ -30,3 +43,7 @@ gulp-prepack
 lodash
 	非常有用的库，前端提纯的时候要用到的库
 	后端一样有用
+log4js
+	打印错误之类的日志
+	建议错误文件记录少点，减少Node服务器压力，Nginx更适合做这件事
+		把http正常请求的日志给nginx记录，node来记录error就可以了

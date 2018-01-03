@@ -1,14 +1,19 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 //404 500
 //koa的async和yeild执行顺序
 const errorHandler = {
-	error(app,logger) {
+	error(app, logger) {
 		//500
 		app.use(async (ctx, next) => {
-			try{
+			try {
 				await next();
-			}catch(err){
+			} catch (err) {
 				ctx.status = ctx.status || 500;
-				logger.error(ctx.status+":"+err)
+				logger.error(ctx.status + ":" + err);
 				ctx.body = "500";
 			}
 		});
@@ -19,9 +24,9 @@ const errorHandler = {
 			// <------------
 			if (404 != ctx.status) return;
 			ctx.status = 404;
-			logger.error("404")
+			logger.error("404");
 			ctx.body = "404";
-		})
+		});
 	}
 };
-export default errorHandler;
+exports.default = errorHandler;
