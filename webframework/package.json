@@ -6,19 +6,40 @@
   "scripts": {
     "test": "",
     "start": "cross-env NODE_ENV=development supervisor ./build/app.js",
-    "build:dev": "cross-env NODE_ENV=development gulp"
+    "build:dev": "cross-env NODE_ENV=development gulp",
+    "webpackdev": "better-npm-run webpack:dev",
+    "webpackprod": "better-npm-run webpack:prod"
   },
-  "author": "",
+  "betterScripts": {
+    "webpackdev": {
+      "command": "webpack --progess --colors",
+      "env": {
+        "NODE_ENV": "dev"
+      }
+    },
+    "webpackprod": {
+      "command": "webpack --progess --colors",
+      "env": {
+        "NODE_ENV": "prod"
+      }
+    }
+  },
+  "author": "sp6688@vip.qq.com",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "co": "^4.6.0",
     "cross-env": "^5.1.3",
+    "g": "^2.0.1",
     "koa": "^2.4.1",
     "koa-simple-router": "^0.2.0",
+    "koa-static": "^4.0.2",
+    "koa-swig": "^2.2.1",
     "lodash": "^4.17.4",
     "log4js": "^2.4.1",
     "request": "^2.83.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "webpack": "^3.10.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

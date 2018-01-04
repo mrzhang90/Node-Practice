@@ -1,7 +1,8 @@
 目录
 	src:所有的文件夹都放到这里
-		web
-			前端的文件
+		web:前端的文件
+			views
+			widget:小的组件
 		webapp
 			vue用到的
 		nodeuii
@@ -47,3 +48,16 @@ log4js
 	打印错误之类的日志
 	建议错误文件记录少点，减少Node服务器压力，Nginx更适合做这件事
 		把http正常请求的日志给nginx记录，node来记录error就可以了
+gulp编译node
+webpack编译前端
+
+SSR构建项目流程:
+	1.配置前端静态资源文件
+	2.webpack css js 插到对应页面的部分去
+	3.views 打包到 views文件夹去的真实界面 widget用来组装views的page
+	4.views里的index.html 负责作为webpack的打包入口~~~
+	5.所有的前端需要编译的资源全部由viewS作为主入口 承载
+	6.js负责吐swig 母的是天空 styles scipts  主内容
+	7.由webpack-html-plugin吐 -> index.js
+	8.page index.js -> index.html  -> views
+	index-index.enrty.js -> index.html -> widget -> js -> css -> img  -> assets

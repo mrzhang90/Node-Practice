@@ -8,7 +8,7 @@ export default class indexModel {
 				.then((htmlString) => {
 					const $ = cheerio.load(htmlString);
 					const html = $('.honour_details p').map(function(i, el) {
-					  return $(this).text();
+						return $(this).text();
 					}).get().join(' ');
 					resolve(html);
 				})
