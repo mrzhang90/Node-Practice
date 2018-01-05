@@ -1,4 +1,4 @@
-require('footer.css');
+// require('footer.css');
 const Footer={
 	init(){
 		console.log('footer');

@@ -11,14 +11,14 @@
     "webpackprod": "better-npm-run webpack:prod"
   },
   "betterScripts": {
-    "webpackdev": {
-      "command": "webpack --progess --colors",
+    "webpack:dev": {
+      "command": "webpack --progress --colors",
       "env": {
         "NODE_ENV": "dev"
       }
     },
-    "webpackprod": {
-      "command": "webpack --progess --colors",
+    "webpack:prod": {
+      "command": "webpack --progress --colors",
       "env": {
         "NODE_ENV": "prod"
       }
@@ -27,10 +27,13 @@
   "author": "sp6688@vip.qq.com",
   "license": "ISC",
   "dependencies": {
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "better-npm-run": "^0.1.0",
     "cheerio": "^1.0.0-rc.2",
     "co": "^4.6.0",
     "cross-env": "^5.1.3",
-    "g": "^2.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
     "koa": "^2.4.1",
     "koa-simple-router": "^0.2.0",
     "koa-static": "^4.0.2",
@@ -38,8 +41,7 @@
     "lodash": "^4.17.4",
     "log4js": "^2.4.1",
     "request": "^2.83.0",
-    "request-promise": "^4.2.2",
-    "webpack": "^3.10.0"
+    "request-promise": "^4.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -47,6 +49,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "gulp-prepack": "^0.0.2",
-    "gulp-watch": "^4.3.11"
+    "gulp-watch": "^4.3.11",
+    "webpack": "^3.10.0"
   }
 }
