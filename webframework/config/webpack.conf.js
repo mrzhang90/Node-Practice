@@ -3,8 +3,8 @@ const fs = require('fs');
 const _ = require('lodash');
 const path = require('path');
 const pagesPath = path.join(__dirname, '../src/web/views');
-const widgetPath = path.join(__dirname, '../src/widget');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const widgetPath = path.join(__dirname, '../src/web/widget');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 //处理所有的js入口文件
 const jsEntris = {};
 fs.readdirSync(pagesPath).map((o, filename) => {
@@ -19,7 +19,6 @@ fs.readdirSync(pagesPath).map((o, filename) => {
 // 2.loaders配置OK
 // 3.公用的模块
 const _entries = Object.assign(jsEntris);
-console.log(_entries)
 const _modules = {
 	rules: [{
 		test: /\.(css)$/,
@@ -42,7 +41,11 @@ const _modules = {
 		test: /\.js$/,
 		loader: 'babel-loader',
 		options: {
-			"presets": ['env']
+			"presets": ['env'
+			// , {
+				// 'modules': false //很重要,这样设置后，webpack执行删除无用代码、优化代码都才会生效
+			// }
+			]
 		}
 	}]
 }

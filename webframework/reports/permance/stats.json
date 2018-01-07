@@ -1,0 +1,303 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "3.10.0",
+  "hash": "1b62cf869070ae425bd7",
+  "time": 1488,
+  "publicPath": "/",
+  "assetsByChunkName": {
+    "index-index": "assets/scripts/index-index.bundle.js"
+  },
+  "assets": [
+    {
+      "name": "assets/scripts/index-index.bundle.js",
+      "size": 3392,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "index-index"
+      ],
+      "emitted": true
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "index-index": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "assets/scripts/index-index.bundle.js"
+      ]
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "extraAsync": false,
+      "size": 780,
+      "names": [
+        "index-index"
+      ],
+      "files": [
+        "assets/scripts/index-index.bundle.js"
+      ],
+      "hash": "536022de8419fd7e1627",
+      "parents": [],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+          "name": "./src/web/views/index/index-index.entry.js",
+          "index": 0,
+          "index2": 2,
+          "size": 378,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "profile": {
+            "factory": 32,
+            "building": 1307
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 0,
+          "source": "'use strict';\n\nvar _header = require('../../widget/myheader/header.js');\n\nvar _header2 = _interopRequireDefault(_header);\n\nvar _footer = require('../../widget/myfooter/footer.js');\n\nvar _footer2 = _interopRequireDefault(_footer);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_header2.default.init();\n\n_footer2.default.init();"
+        },
+        {
+          "id": 1,
+          "identifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\widget\\myheader\\header.js",
+          "name": "./src/web/widget/myheader/header.js",
+          "index": 1,
+          "index2": 0,
+          "size": 201,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+          "issuerId": 0,
+          "issuerName": "./src/web/views/index/index-index.entry.js",
+          "profile": {
+            "factory": 52,
+            "building": 44
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 0,
+              "moduleIdentifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+              "module": "./src/web/views/index/index-index.entry.js",
+              "moduleName": "./src/web/views/index/index-index.entry.js",
+              "type": "cjs require",
+              "userRequest": "../../widget/myheader/header.js",
+              "loc": "3:14-56"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n// require('header.css');\nvar Header = {\n\tinit: function init() {\n\t\tconsole.log('header');\n\t}\n};\nexports.default = Header;"
+        },
+        {
+          "id": 2,
+          "identifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\widget\\myfooter\\footer.js",
+          "name": "./src/web/widget/myfooter/footer.js",
+          "index": 2,
+          "index2": 1,
+          "size": 201,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+          "issuerId": 0,
+          "issuerName": "./src/web/views/index/index-index.entry.js",
+          "profile": {
+            "factory": 53,
+            "building": 56
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 0,
+              "moduleIdentifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+              "module": "./src/web/views/index/index-index.entry.js",
+              "moduleName": "./src/web/views/index/index-index.entry.js",
+              "type": "cjs require",
+              "userRequest": "../../widget/myfooter/footer.js",
+              "loc": "7:14-56"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n// require('footer.css');\nvar Footer = {\n\tinit: function init() {\n\t\tconsole.log('footer');\n\t}\n};\nexports.default = Footer;"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "moduleId": 0,
+          "module": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+          "moduleIdentifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+          "moduleName": "./src/web/views/index/index-index.entry.js",
+          "loc": "",
+          "name": "index-index",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+      "name": "./src/web/views/index/index-index.entry.js",
+      "index": 0,
+      "index2": 2,
+      "size": 378,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "profile": {
+        "factory": 32,
+        "building": 1307
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 0,
+      "source": "'use strict';\n\nvar _header = require('../../widget/myheader/header.js');\n\nvar _header2 = _interopRequireDefault(_header);\n\nvar _footer = require('../../widget/myfooter/footer.js');\n\nvar _footer2 = _interopRequireDefault(_footer);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_header2.default.init();\n\n_footer2.default.init();"
+    },
+    {
+      "id": 1,
+      "identifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\widget\\myheader\\header.js",
+      "name": "./src/web/widget/myheader/header.js",
+      "index": 1,
+      "index2": 0,
+      "size": 201,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+      "issuerId": 0,
+      "issuerName": "./src/web/views/index/index-index.entry.js",
+      "profile": {
+        "factory": 52,
+        "building": 44
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 0,
+          "moduleIdentifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+          "module": "./src/web/views/index/index-index.entry.js",
+          "moduleName": "./src/web/views/index/index-index.entry.js",
+          "type": "cjs require",
+          "userRequest": "../../widget/myheader/header.js",
+          "loc": "3:14-56"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n// require('header.css');\nvar Header = {\n\tinit: function init() {\n\t\tconsole.log('header');\n\t}\n};\nexports.default = Header;"
+    },
+    {
+      "id": 2,
+      "identifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\widget\\myfooter\\footer.js",
+      "name": "./src/web/widget/myfooter/footer.js",
+      "index": 2,
+      "index2": 1,
+      "size": 201,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+      "issuerId": 0,
+      "issuerName": "./src/web/views/index/index-index.entry.js",
+      "profile": {
+        "factory": 53,
+        "building": 56
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 0,
+          "moduleIdentifier": "F:\\node\\webframework\\node_modules\\babel-loader\\lib\\index.js??ref--1!F:\\node\\webframework\\src\\web\\views\\index\\index-index.entry.js",
+          "module": "./src/web/views/index/index-index.entry.js",
+          "moduleName": "./src/web/views/index/index-index.entry.js",
+          "type": "cjs require",
+          "userRequest": "../../widget/myfooter/footer.js",
+          "loc": "7:14-56"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n// require('footer.css');\nvar Footer = {\n\tinit: function init() {\n\t\tconsole.log('footer');\n\t}\n};\nexports.default = Footer;"
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}

@@ -48,6 +48,11 @@ log4js
 	打印错误之类的日志
 	建议错误文件记录少点，减少Node服务器压力，Nginx更适合做这件事
 		把http正常请求的日志给nginx记录，node来记录error就可以了
+extract-text-webpack-plugin
+	把CSS提取出来
+postcss
+	postcss-css-variables
+		处理基础的变量
 gulp编译node
 webpack编译前端
 
