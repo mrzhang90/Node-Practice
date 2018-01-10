@@ -1,6 +1,7 @@
 const conf = require('./webpack.conf');
 const webpack = require('webpack');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const options = {
 	output: {
 		path: path.join(__dirname, '../build/'),
@@ -8,6 +9,7 @@ const options = {
 		filename: 'assets/scripts/[name].bundle.js'
 	},
 	plugins: [
+		new ExtractTextPlugin("styles/[name].css"),
 		//scope hoisting
 		new webpack.optimize.ModuleConcatenationPlugin(),
 		new webpack.DefinePlugin({

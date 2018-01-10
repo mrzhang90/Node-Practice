@@ -56,6 +56,12 @@ postcss
 gulp编译node
 webpack编译前端
 
+ExtractTextPlugin
+	把css提出来，但是有的时候不需要提，那就是css modules
+css modules
+	webpack把css打到js里，起了个名词，叫做css modules。就是说，他把css像js一样包到一个命名区里去了，
+然后往页面插入时，再把它拿出来，所以也叫做"css in js"。(哈哈，可能就是不知道怎么把css整出去，所以起了这么一高大尚的名词)
+
 SSR构建项目流程:
 	1.配置前端静态资源文件
 	2.webpack css js 插到对应页面的部分去

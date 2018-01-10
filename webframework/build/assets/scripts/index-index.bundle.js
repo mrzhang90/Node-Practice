@@ -65,63 +65,44 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
-
-var _header = __webpack_require__(1);
-
-var _header2 = _interopRequireDefault(_header);
-
-var _footer = __webpack_require__(2);
-
-var _footer2 = _interopRequireDefault(_footer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_header2.default.init();
-
-_footer2.default.init();
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./header.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+// CONCATENATED MODULE: ./src/web/widget/myheader/header.js
+__webpack_require__(1);
 var Header = {
 	init: function init() {
-		if (prodess.env.NODE_ENV == 'pp') {
-			console.log(123456);
-		}
 		console.log('header');
 	}
 };
-exports.default = Header;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./footer.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+/* harmony default export */ var header = (Header);
+// CONCATENATED MODULE: ./src/web/widget/myfooter/footer.js
+__webpack_require__(2);
 var Footer = {
 	init: function init() {
 		console.log('footer');
 	}
 };
-exports.default = Footer;
+/* harmony default export */ var footer = (Footer);
+// CONCATENATED MODULE: ./src/web/views/index/index-index.entry.js
+
+header.init();
+
+footer.init();
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n| :root {\r\n|     --mainColor: yellowgreen;\r\n| }\r");
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n| :root {\r\n|     --mainColor: redgreen;\r\n| }\r");
 
 /***/ })
 /******/ ]);
