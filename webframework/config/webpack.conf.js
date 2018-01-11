@@ -30,6 +30,12 @@ const _modules = {
                 }]
             ]
         }
+    },{
+        test:/\.css$/,
+        loader:ExtractTextPlugin.extract({
+            fallback:"style-loader",
+            use:"css-loader!postcss-loader"
+        })
     }]
 }
 const _resolve = {

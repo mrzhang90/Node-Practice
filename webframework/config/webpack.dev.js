@@ -9,7 +9,7 @@ const options = {
 		filename: 'assets/scripts/[name].bundle.js'
 	},
 	plugins: [
-		new ExtractTextPlugin("styles/[name].css"),
+		new ExtractTextPlugin("assets/styles/[name].css"),
 		//scope hoisting
 		new webpack.optimize.ModuleConcatenationPlugin(),
 		new webpack.DefinePlugin({
