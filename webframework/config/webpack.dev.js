@@ -1,7 +1,11 @@
 const conf = require('./webpack.conf');
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+//这是我自己写的插件
+const htmlAfterWebpackPlugin = require('./htmlAfterWebpackPlugin');
+
 const options = {
 	output: {
 		path: path.join(__dirname, '../build/'),
@@ -12,9 +16,15 @@ const options = {
 		new ExtractTextPlugin("assets/styles/[name].css"),
 		//scope hoisting
 		new webpack.optimize.ModuleConcatenationPlugin(),
+		new HtmlWebpackPlugin({
+			filename: 'views/index.html',//要去生成的文件
+			template:'src/web/views/index/pages/index.html',//原始的要去读的文件
+			inject:false//不要默认的把js插进来，我自定义 控制模板的顺序
+		}),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'dev')
 		}),
+		new htmlAfterWebpackPlugin({})
 		// new webpack.optimize.UglifyJsPlugin({
 		// 	output: {
 		// 		//最近凑的输出

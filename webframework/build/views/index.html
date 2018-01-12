@@ -1,16 +1,9 @@
-{% extends './layout.html' %}
-
-{% block styles %}
-	<link rel="stylesheet" href="index.css">
+{% extends '../../common/pages/layout.html' %}
+{% block styles%}
+	<div id="js-block-style">123456</div>
 {% endblock %}
 {% block content %}
-	<h2>
-		hello,好心情！！！
-	</h2>
-	<div>
-		{{data}}
-	</div>
+	{% include '../../../widget/tools/tools.html' %}
+	{% include '../../../widget/course/course.html' %}
 {% endblock %}
-{% block scripts %}
-	<script src="index.js"></script>
-{% endblock %}
+{% block scripts %}{% endblock %}
