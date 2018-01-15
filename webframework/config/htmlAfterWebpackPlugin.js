@@ -32,10 +32,14 @@ htmlAfterWebpackPlugin.prototype.apply = function(compiler) {
 		compilation.plugin('html-webpack-plugin-before-html-processing', function(htmlPluginData, callback) {
 			let _html = htmlPluginData.html; //html文件
 			let result=assetsHelper(htmlPluginData.assets)//资源文件
-			// console.log('静态资源',result);
-			const $=cheerio.load(_html);
-			console.log('测试结果',$('#js-block-style').html());
-			
+			// const $=cheerio.load(_html);
+			// console.log('测试结果',$('#js-block-style').html());
+			//layout公用模板，一般都是指定的公用CDN资源，
+			let isBase = htmlPluginData.outputName.includes('./layout.html');
+			if(!isBase){
+				_html=_html.replace('{{css}}',result.cssstr.join(""));			
+				_html=_html.replace('{{js}}',result.jsstr.join(""));	
+			}		
 			htmlPluginData.html = _html;
 			callback(null, htmlPluginData);
 		});
