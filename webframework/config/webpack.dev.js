@@ -8,31 +8,31 @@ const htmlAfterWebpackPlugin = require('./htmlAfterWebpackPlugin');
 
 const options = {
 	output: {
-		path: path.join(__dirname, '../build/'),
+		path: path.join(__dirname, '../build/assets/'),
 		publicPath: '/',
-		filename: 'assets/scripts/[name].bundle.js'
+		filename: 'scripts/[name].bundle.js'
 	},
 	plugins: [
-		new ExtractTextPlugin("assets/styles/[name].css"),
+		new ExtractTextPlugin("styles/[name].css"),
 		//scope hoisting
 		new webpack.optimize.ModuleConcatenationPlugin(),
 		new HtmlWebpackPlugin({
-			filename: 'views/index.html',//要去生成的文件
+			filename: '../views/index.html',//要去生成的文件
 			template:'src/web/views/index/pages/index.html',//原始的要去读的文件
 			inject:false//不要默认的把js插进来，我自定义 控制模板的顺序
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'views/layout.html',//要去生成的文件
+			filename: '../views/layout.html',//要去生成的文件
 			template:'src/web/views/common/pages/layout.html',//原始的要去读的文件
 			inject:false//不要默认的把js插进来，我自定义 控制模板的顺序
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'widget/header.html',//要去生成的文件
+			filename: '../widget/header.html',//要去生成的文件
 			template:'src/web/widget/myheader/header.html',//原始的要去读的文件
 			inject:false//不要默认的把js插进来，我自定义 控制模板的顺序
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'widget/footer.html',//要去生成的文件
+			filename: '../widget/footer.html',//要去生成的文件
 			template:'src/web/widget/myfooter/footer.html',//原始的要去读的文件
 			inject:false//不要默认的把js插进来，我自定义 控制模板的顺序
 		}),

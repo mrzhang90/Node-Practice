@@ -20,7 +20,7 @@ app.context.render = co.wrap(render({
   writeBody: false
 }));
 log4js.configure({
-  appenders: { mrzhang: { type: 'file', filename: './build/mrzhang.log' } },
+  appenders: { mrzhang: { type: 'file', filename: './logs/mrzhang.log' } },
   categories: { default: { appenders: ['mrzhang'], level: 'error' } }
 });
 const logger = log4js.getLogger('mrzhang');
