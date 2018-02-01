@@ -1,0 +1,52 @@
+{
+  "name": "webframework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "start": "cross-env NODE_ENV=development supervisor ./build/app.js",
+    "build:dev": "cross-env NODE_ENV=development gulp",
+    "webpack:dev": "better-npm-run webpack:dev",
+    "webpack:prod": "better-npm-run webpack:prod"
+  },
+  "betterScripts": {
+    "webpack:dev": {
+      "command": "webpack --progress --colors",
+      "env": {
+        "NODE_ENV": "dev"
+      }
+    },
+    "webpack:prod": {
+      "command": "webpack --progress --colors",
+      "env": {
+        "NODE_ENV": "prod"
+      }
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "co": "^4.6.0",
+    "cross-env": "^5.1.3",
+    "koa": "^2.4.1",
+    "koa-simple-router": "^0.2.0",
+    "koa-static": "^4.0.2",
+    "koa-swig": "^2.2.1",
+    "lodash": "^4.17.4",
+    "log4js": "^2.5.2",
+    "path": "^0.12.7",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-watch": "^5.0.0",
+    "webpack": "^3.10.0"
+  }
+}
