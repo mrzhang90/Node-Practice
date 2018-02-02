@@ -20,7 +20,20 @@ fs.readdirSync(pagesPath).map((o, filename) => {
 //3.公用的模块
 const _entries = Object.assign(jsEntris);
 const _modules = {
-	rules: [{
+	rules: [
+	// {
+	// 	test: /\.(css)$/,
+	// 	loader: ExtractTextPlugin.extract({
+	// 		fallback: "style-loader",
+	// 		use: [{
+	// 			loader: "css-loader"
+	// 		}, {
+	// 			loader: "postcss-loader",
+	// 			options: {}
+	// 		}],
+	// 	})
+	// }, 
+	{
 		test: /\.js$/,
 		loader: 'babel-loader',
 		options: {
