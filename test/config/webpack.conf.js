@@ -4,7 +4,7 @@ const path = require('path');
 const _ = require('lodash');
 const pagesPath = path.join(__dirname, '../src/web/views');
 const widgetPath = path.join(__dirname, '../src/widget');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 //处理所有的js的入口文件
 const jsEntris = {};
 fs.readdirSync(pagesPath).map((o, filename) => {
@@ -21,18 +21,13 @@ fs.readdirSync(pagesPath).map((o, filename) => {
 const _entries = Object.assign(jsEntris);
 const _modules = {
 	rules: [
-	// {
-	// 	test: /\.(css)$/,
-	// 	loader: ExtractTextPlugin.extract({
-	// 		fallback: "style-loader",
-	// 		use: [{
-	// 			loader: "css-loader"
-	// 		}, {
-	// 			loader: "postcss-loader",
-	// 			options: {}
-	// 		}],
-	// 	})
-	// }, 
+	{
+		test: /\.css$/,
+		loader: ExtractTextPlugin.extract({
+			fallback: "style-loader",
+			use: "css-loader!postcss-loader"
+		})
+	}, 
 	{
 		test: /\.js$/,
 		loader: 'babel-loader',
