@@ -32,7 +32,9 @@ const _modules = {
 		test: /\.js$/,
 		loader: 'babel-loader',
 		options: {
-			"presets": ['env']
+			"presets": [['env',{
+				'modules':false
+			}]]
 		}
 	}]
 }

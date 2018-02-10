@@ -2,19 +2,19 @@ const path = require('path');
 const webpack = require('webpack');
 const conf = require('./webpack.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-plus-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const htmlAfterWebpackPlugin = require('./htmlAfterWebpackPlugin.js');
 const options = {
 	output: {
 		path: path.join(__dirname, "../build/"),
 		publicPath: '/',
-		filename: "assets/script/[name].boundle.js"
+		filename: "assets/scripts/[name].bundle.js"
 	},
 	plugins: [
 		new ExtractTextPlugin("assets/styles/[name].css"),
 		new webpack.optimize.ModuleConcatenationPlugin(),
 		new HtmlWebpackPlugin({
-			filename: 'assets/admin.html',
+			filename: 'assets/index.html',
 			template:'src/web/views/index/pages/index.html',
 			inject:false
 		}),
