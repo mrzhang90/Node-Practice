@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,7 @@
     <meta content="yes" name="apple-touch-fullscreen">
     <meta content="telephone=no,email=no" name="format-detection">
     <title>首页</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_574305_oubjeucva9zwu3di.css">
     <link rel="stylesheet" href="css/neat.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
@@ -17,19 +18,99 @@
     <header class="header">
     	<a href="" class="left">查明细</a>
     	<a href="" class="right">发红包</a>
-    	<div class="title">BTC</div>
+    	<div class="title font_Semibold">BTC</div>
     </header>
-	<section class="contnet">
-		<div class="box1"></div>
+	<section class="content">
+		<div class="box1">
+            <p>总资产</p>
+            <div>
+                <span>2.3445654653</span>
+            </div>
+        </div>
 		<div class="box2">
-			<div class="tab_title">
-				bb
+			<div class="tab_title flex font_Semibold j_tab_title">
+                <div class="active">给币赞充币</div>
+				<div>从币赞提币</div>
 			</div>
 			<div class="tab_content">
-				cc
+				<div class="info_tab_content j_tab_content">
+                    <div class="info">
+                        <p class="username">Nic Zhao</p>
+                        <p class="descript">用币来赞是最好的支持</p>
+                        <div class="code">
+                            <img src="images/code.jpg">
+                            <p>长按二维码，看看谁在用币赞</p>
+                        </div>
+                    </div>            
+                    <div class="address">
+                        <div class="separated">
+                            <img src="images/logo.png" alt="">
+                        </div>
+                        <p class="p">sdfasdfassjkhasjkdhfkjadshdkjfhkadsjhfkjhaskdhfkj1</p>
+                        <p class="p">分享赞赏码获得赞赏或向上述地址转入BTC完成充币</p>
+                        <div class="btns flex">
+                            <button>复制地址</button>
+                            <button>保存图片</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="j_tab_content">
+                    
+                </div>
 			</div>
+            <div class="log_box2">
+                <div class="title_log flex">
+                    <span>即将到账</span>
+                    <a href="">刷新</a>
+                </div>
+                <div>
+                    <div class="noLog" style="display: none;">
+                        <img src="images/noLog.png" alt="">
+                        <p>暂无记录</p>
+                    </div>
+                    <ul>
+                        <li class="flex">
+                            <div class="left_list">
+                                <span class="font_Semibold">Kold He</span>
+                                <p>0.1234354445121BTC</p>
+                            </div>
+                            <div class="right_list">
+                                <span>2018.02.12</span>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="left_list">
+                                <span class="font_Semibold">Kold He</span>
+                                <p>0.1234354445121BTC</p>
+                            </div>
+                            <div class="right_list">
+                                <span>2018.02.12</span>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="left_list">
+                                <span class="font_Semibold">Kold He</span>
+                                <p>0.1234354445121BTC</p>
+                            </div>
+                            <div class="right_list">
+                                <span>2018.02.12</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="more" style="display:none;">点击加载更多</p>
+                </div>
+            </div>
 		</div>
 	</section>
 </body>
-
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.j_tab_title div').on('click',function(){
+            var index=$(this).index();
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.j_tab_content').eq(index).show().siblings('.j_tab_content').hide();
+        })
+    })
+</script>
 </html>
