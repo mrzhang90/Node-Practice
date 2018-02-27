@@ -1,7 +1,14 @@
+html{
+	height: 100%;
+}
+body{
+	min-height:100%;
+}
 body{
 	font-family: "PingFangSC-Regular";
 	background-image: linear-gradient(-180deg, #643B97 0%, #7C2289 99%);
 	color:#fff;
+	visibility:hidden;
 }
 button,a{
 	color:#fff;
@@ -11,6 +18,10 @@ button{
 	background-image: linear-gradient(-90deg, #00D79E 0%, #29DEC1 100%);
 	border-radius: 1.3333333333333333rem;
 }
+input{
+	outline: none;
+}
+.j_tab_content{display:none;}
 .flex{
 	display:-webkit-box;
 	display:-moz-box;
@@ -164,40 +175,139 @@ button{
      font-size: 1.166em;
      color: #712E90;
 }
- .log_box2 ul{
+ .list_log{
 }
- .log_box2 li{
+ .list_log li{
      padding:0.36rem 0;
      border-bottom:dashed 0.02666666666666667rem #f0eaf3;
      justify-content:space-between;
 }
  
-.log_box2 .left_list{
+.left_list{
 }
-.log_box2 .left_list span{
+.left_list span{
 	display:block;
 	line-height: 0.50666rem;
 	font-size: 1.166em;
 	color: #1A1A1A;
 }
-.log_box2 .left_list p{
+.left_list p{
 	line-height: 0.48rem;
 	color: #00CB96;
 }
-.log_box2 .right_list span{
+.right_list span{
 	display:block;
 	line-height: 0.50666rem;
 	color: #9A9A9A;
 }
-.log_box2 .noLog{
+.noLog{
 	padding-top:1.333em;
 	padding-bottom:0.18666rem;
 	line-height:0.8rem;
 	text-align:center;
 	color: #BAA4C3;
 }
-.log_box2 .more{
+.more{
 	line-height:0.96rem;
 	color: #808080;
 	text-align:center;
+}
+.tab_form{
+	padding:0 32px;
+}
+.input_group{
+	padding-top:30px;
+	line-height:70px;
+	color: #1A1A1A;
+	border-bottom:solid 2px #d4c0dd;
+	/*justify-content: space-between;*/
+    align-items: center;
+}
+.input_group label{
+	width:169px;
+	font-size: 32px;
+}
+.input_group input{
+	padding-right:11px;width:400px;
+	font-size: 32px;
+	border:none;
+}
+.input_group .code_input{
+	width:42px;height:42px;
+	background:url(../images/code1.jpg) no-repeat;
+}
+.bit_tab{
+	line-height: 214px;
+	color: #6C3292;
+	text-align: center;
+	font-size: 0;
+}
+.bit_tab img{
+	vertical-align: middle;
+}
+.bit_tab span{
+	margin-left:20px;
+	font-size: 72px;
+	border-bottom:solid 6px #6C3292;
+	vertical-align: middle;
+}
+.set_tab{
+	line-height:48px;
+	color: #1A1A1A;
+	text-align:center;
+}
+.set_tab a{
+	color: #712E90;
+}
+.submit_tab{
+	margin-top:22px;
+	height:88px;
+	font-size: 32px;
+	width:100%;
+}
+/*info*/
+.tab_header{
+	height:88px;
+	line-height:88px;
+	background: #FFFFFF;
+	justify-content: space-around;
+}
+.tab_header span{
+	position: relative;
+	font-size:32px;
+	color: #1B1B1B;
+}
+.tab_header .active span{
+	color: #6C3292;
+}
+.tab_header .active span:before{
+	content:"";
+	position:absolute;
+	left:0;right:0;bottom:-12px;
+	height:4px;
+	background: #6C3292;
+}
+.log_boxBg .list_log{
+	padding-top:32px;
+}
+.log_boxBg .list_log li{
+	padding:31px 34px;
+	margin-bottom:16px;
+	height:106px;
+	border-radius: 8px;
+	background: #FFFFFF;
+}
+.log_boxBg .list_log .left_list span{
+	line-height:52px;
+	font-size:36px;
+}
+.log_boxBg .list_log p{
+	line-height:46px;
+	font-size:28px;
+}
+.log_boxBg .list_log .right_list span{
+    line-height: 62px;
+}
+.log_boxBg .more,.log_boxBg .noLog{
+	color:#fff;
 }

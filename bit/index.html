@@ -8,10 +8,21 @@
     <meta content="yes" name="apple-touch-fullscreen">
     <meta content="telephone=no,email=no" name="format-detection">
     <title>首页</title>
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_574305_oubjeucva9zwu3di.css">
-    <link rel="stylesheet" href="css/neat.css">
-    <link rel="stylesheet" href="css/main.css">
     <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_574305_oubjeucva9zwu3di.css">
+    <link rel="stylesheet" href="css/neat.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('body').css('visibility',"visible")
+            $('.j_tab_title div').on('click',function(){
+                var index=$(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.j_tab_content').eq(index).show().siblings('.j_tab_content').hide();
+            })
+        })
+    </script>
 </head>
 
 <body>
@@ -55,7 +66,25 @@
                     </div>
                 </div>
                 <div class="j_tab_content">
-                    
+                    <div class="tab_form">
+                        <div class="input_group flex">
+                            <label for="">发送地址</label>
+                            <input type="text" placeholder="请输入要发送的BTC地址">
+                            <i class="code_input"></i>
+                        </div>
+                        <div class="input_group flex">
+                            <label for="">发送数量</label>
+                            <input type="text" value="0.234" placeholder="请输入要发送的数量">
+                        </div>
+                        <div class="bit_tab font_Semibold">
+                            <img src="images/logo_big.png" alt="">
+                            <span>0.3445245</span>
+                        </div>
+                        <p class="set_tab">
+                            请先设置提币密码，<a href="">去设置</a>
+                        </p>
+                        <button class="submit_tab">确认发送</button>
+                    </div>
                 </div>
 			</div>
             <div class="log_box2">
@@ -68,7 +97,7 @@
                         <img src="images/noLog.png" alt="">
                         <p>暂无记录</p>
                     </div>
-                    <ul>
+                    <ul class="list_log">
                         <li class="flex">
                             <div class="left_list">
                                 <span class="font_Semibold">Kold He</span>
@@ -103,14 +132,4 @@
 		</div>
 	</section>
 </body>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $(function(){
-        $('.j_tab_title div').on('click',function(){
-            var index=$(this).index();
-            $(this).addClass('active').siblings().removeClass('active');
-            $('.j_tab_content').eq(index).show().siblings('.j_tab_content').hide();
-        })
-    })
-</script>
 </html>
