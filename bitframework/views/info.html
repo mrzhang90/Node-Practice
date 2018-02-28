@@ -1,0 +1,112 @@
+{% extends './layout.html' %}
+{% block title%}查明细{% endblock %}
+{% block scripts %}
+	<script>
+        $(function(){
+            $('body').css('visibility',"visible")
+            $('.j_tab_title div').on('click',function(){
+                var index=$(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.j_tab_content').eq(index).show().siblings('.j_tab_content').hide();
+            })
+        })
+    </script>
+{% endblock %}
+{% block content %}
+<body>
+	<header class="j_tab_title tab_header flex">
+        <div class="active">
+            <span>全部明细</span>
+        </div>
+        <div>
+            <span>收到BTC</span>
+        </div>
+        <div>
+            <span>发出BTC</span>
+        </div>
+    </header>
+    <section class="content">
+        <div class="j_tab_content log_boxBg" style="display: block;">
+            <div>
+                <div class="noLog" style="display: none;">
+                    <img src="images/noLog.png" alt="">
+                    <p>暂无记录</p>
+                </div>
+                <ul class="list_log">
+                    <li class="flex">
+                        <div class="left_list">
+                            <span class="font_Semibold">Kold He</span>
+                            <p>0.1234354445121BTC</p>
+                        </div>
+                        <div class="right_list">
+                            <span>2018.02.12</span>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="left_list">
+                            <span class="font_Semibold">Kold He</span>
+                            <p>0.1234354445121BTC</p>
+                        </div>
+                        <div class="right_list">
+                            <span>2018.02.12</span>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="left_list">
+                            <span class="font_Semibold">Kold He</span>
+                            <p>0.1234354445121BTC</p>
+                        </div>
+                        <div class="right_list">
+                            <span>2018.02.12</span>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="left_list">
+                            <span class="font_Semibold">Kold He</span>
+                            <p>0.1234354445121BTC</p>
+                        </div>
+                        <div class="right_list">
+                            <span>2018.02.12</span>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="left_list">
+                            <span class="font_Semibold">Kold He</span>
+                            <p>0.1234354445121BTC</p>
+                        </div>
+                        <div class="right_list">
+                            <span>2018.02.12</span>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="left_list">
+                            <span class="font_Semibold">Kold He</span>
+                            <p>0.1234354445121BTC</p>
+                        </div>
+                        <div class="right_list">
+                            <span>2018.02.12</span>
+                        </div>
+                    </li>
+                </ul>
+                <p class="more" style="display:block;">点击加载更多</p>
+            </div>
+        </div>
+        <div class="j_tab_content log_boxBg">
+            <div>
+                <div class="noLog" style="display: block;">
+                    <img src="images/noLog.png" alt="">
+                    <p>暂无记录</p>
+                </div>
+            </div>
+        </div>
+        <div class="j_tab_content log_boxBg">
+            <div>
+                <div class="noLog" style="display: block;">
+                    <img src="images/noLog.png" alt="">
+                    <p>暂无记录</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+{% endblock %}

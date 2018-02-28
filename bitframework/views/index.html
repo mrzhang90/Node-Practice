@@ -1,0 +1,124 @@
+{% extends './layout.html' %}
+{% block title%}首页{% endblock %}
+{% block scripts %}
+	<script>
+        $(function(){
+            $('body').css('visibility',"visible")
+            $('.j_tab_title div').on('click',function(){
+                var index=$(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.j_tab_content').eq(index).show().siblings('.j_tab_content').hide();
+            })
+        })
+    </script>
+{% endblock %}
+{% block content %}
+<body>
+{{data.username}}
+	<header class="header">
+    	<a href="" class="left">查明细</a>
+    	<a href="" class="right">发红包</a>
+    	<div class="title font_Semibold">BTC</div>
+    </header>
+	<section class="content">
+		<div class="box1">
+            <p>总资产</p>
+            <div>
+                <span>2.3445654653</span>
+            </div>
+        </div>
+		<div class="box2">
+			<div class="tab_title flex font_Semibold j_tab_title">
+                <div class="active">给币赞充币</div>
+				<div>从币赞提币</div>
+			</div>
+			<div class="tab_content">
+				<div class="info_tab_content j_tab_content" style="display:block;">
+                    <div class="info">
+                        <p class="username">Nic Zhao</p>
+                        <p class="descript">用币来赞是最好的支持</p>
+                        <div class="code">
+                            <img src="images/code.jpg">
+                            <p>长按二维码，看看谁在用币赞</p>
+                        </div>
+                    </div>            
+                    <div class="address">
+                        <div class="separated">
+                            <img src="images/logo.png" alt="">
+                        </div>
+                        <p class="p">sdfasdfassjkhasjkdhfkjadshdkjfhkadsjhfkjhaskdhfkj1</p>
+                        <p class="p">分享赞赏码获得赞赏或向上述地址转入BTC完成充币</p>
+                        <div class="btns flex">
+                            <button>复制地址</button>
+                            <button>保存图片</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="j_tab_content">
+                    <div class="tab_form">
+                        <div class="input_group flex">
+                            <label for="">发送地址</label>
+                            <input type="text" placeholder="请输入要发送的BTC地址">
+                            <i class="code_input"></i>
+                        </div>
+                        <div class="input_group flex">
+                            <label for="">发送数量</label>
+                            <input type="text" value="0.234" placeholder="请输入要发送的数量">
+                        </div>
+                        <div class="bit_tab font_Semibold">
+                            <img src="images/logo_big.png" alt="">
+                            <span>0.3445245</span>
+                        </div>
+                        <p class="set_tab">
+                            请先设置提币密码，<a href="">去设置</a>
+                        </p>
+                        <button class="submit_tab">确认发送</button>
+                    </div>
+                </div>
+			</div>
+            <div class="log_box2">
+                <div class="title_log flex">
+                    <span>即将到账</span>
+                    <a href="">刷新</a>
+                </div>
+                <div>
+                    <div class="noLog" style="display: none;">
+                        <img src="images/noLog.png" alt="">
+                        <p>暂无记录</p>
+                    </div>
+                    <ul class="list_log">
+                        <li class="flex">
+                            <div class="left_list">
+                                <span class="font_Semibold">Kold He</span>
+                                <p>0.1234354445121BTC</p>
+                            </div>
+                            <div class="right_list">
+                                <span>2018.02.12</span>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="left_list">
+                                <span class="font_Semibold">Kold He</span>
+                                <p>0.1234354445121BTC</p>
+                            </div>
+                            <div class="right_list">
+                                <span>2018.02.12</span>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="left_list">
+                                <span class="font_Semibold">Kold He</span>
+                                <p>0.1234354445121BTC</p>
+                            </div>
+                            <div class="right_list">
+                                <span>2018.02.12</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="more" style="display:none;">点击加载更多</p>
+                </div>
+            </div>
+		</div>
+	</section>
+</body>
+{% endblock %}

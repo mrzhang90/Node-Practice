@@ -1,0 +1,24 @@
+{
+  "name": "bitframework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "start": "supervisor ./app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bitcoinjs-lib": "^3.3.2",
+    "co": "^4.6.0",
+    "cookies": "^0.7.1",
+    "koa": "^2.5.0",
+    "koa-simple-router": "^0.2.0",
+    "koa-static": "^4.0.2",
+    "koa-swig": "^2.2.1",
+    "lodash": "^4.17.5",
+    "path": "^0.12.7"
+  }
+}
