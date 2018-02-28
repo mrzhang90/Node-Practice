@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <!--允许全屏-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <title>查明细</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_574305_oubjeucva9zwu3di.css">
+    <link rel="stylesheet" href="css/neat.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(function() {
+        $('body').css('visibility', "visible")
+        var type=0;//0总金额，1单个红包
+        $('.setMoney').on('click',function(){
+            type=type==0?1:0;
+            $('.j_name').text(type==0?"总金额":"单个红包")
+        })
+        $('#textarea').on('input',function(){
+            $(this).css('color','#1A1A1A')
+        })
+    })
+    </script>
+</head>
+
+<body class="sendMoney">
+    <section class="main">
+        <div class="group_money">
+            <div class="input_group flex">
+                <label class="j_name">总金额</label>
+                <input type="text" placeholder="您最多可发送0.2344523BTC">
+                <span>BTC</span>
+            </div>
+            <div class="setMoney">
+                当前为拼手气红包，改为普通红包
+            </div>
+        </div>
+        <div class="group_money">
+            <div class="input_group flex">
+                <label>红包个数</label>
+                <input type="text" placeholder="填写个数">
+                <span>个</span>
+            </div>
+        </div>
+        <div class="group_money" style="padding-bottom:0;">
+            <textarea name="" id="textarea">恭喜发财，大吉大利！</textarea>
+        </div>
+        <div class="bit_tab font_Semibold">
+            <img src="images/logo_big.png" alt="">
+            <span>0.3445245</span>
+        </div>
+        <button class="submit_tab">发红包</button>
+    </section>
+</body>
+
+</html>
