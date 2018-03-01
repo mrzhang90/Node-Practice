@@ -26,6 +26,7 @@ input{
 input:-moz-placeholder{font-size:0.75em;color: #9A9A9A;}
 input:-ms-input-placeholder{font-size:0.75em;color: #9A9A9A;}
 input::-webkit-input-placeholder{font-size:0.75em;color: #9A9A9A;}
+.error{color:red!important;}
 .j_tab_content{display:none;}
 .flex{
 	display:-webkit-box;

@@ -9,12 +9,73 @@
                 $(this).addClass('active').siblings().removeClass('active');
                 $('.j_tab_content').eq(index).show().siblings('.j_tab_content').hide();
             })
+            var bit_number={{bit_number || 0}}
+            $('.input_number').on('input',function(){
+                var val=Number($(this).val())
+                if(val > bit_number){
+                    $(this).parent().addClass('error');
+                    var That=$(this)
+                    setTimeout(function(){
+                        That.val(delLastString(That.val()));
+                    },200)
+                    return false;
+                }
+                $(this).parent().removeClass('error');
+                var hl=0.13;
+                $('.j_money').text((val * hl).toFixed(2));
+            })
+            $('.input_number').on('blur',function(){
+                regNumber('input_number')
+            })
+            $('.input_address').on('input',function(){
+                regNumber('input_address')
+            })
+            $('.j_submit').on('click',function(){
+                if(regAddress('input_address') && regNumber('input_number')){
+                    $.ajax({
+                        url:'/outMoney',
+                        data:{
+                            'address':$('.input_address').val(),
+                            'number':$('.input_number').val()
+                        },
+                        type:'post',
+                        success:function(result){
+                            console.log(result)
+                        },
+                        error:function(){
+                            console.log('error')
+                        }
+                    })
+                }
+            })
+            function regAddress(element){
+                var ele=$('.'+element);
+                if(ele.val()==''){
+                    ele.parent().addClass('error')
+                    return false;
+                }else{
+                    ele.parent().removeClass('error')
+                    return true;
+                }
+            }
+            function regNumber(element){
+                var ele=$('.'+element);
+                if(ele.val()=='' || Number(ele.val())<=0 || ele.val() > bit_number){
+                    ele.parent().addClass('error')
+                    return false;
+                }else{
+                    ele.parent().removeClass('error')
+                    return true;
+                }
+            }
         })
+        function delLastString(val){
+            return val.substring(0,val.length-1)
+        }
     </script>
 {% endblock %}
 {% block content %}
 <body>
-{{data.username}}
 	<header class="header">
     	<a href="" class="left">查明细</a>
     	<a href="" class="right">发红包</a>
@@ -24,7 +85,7 @@
 		<div class="box1">
             <p>总资产</p>
             <div>
-                <span>2.3445654653</span>
+                <span>{{bit_money || 0}}</span>
             </div>
         </div>
 		<div class="box2">
@@ -35,7 +96,7 @@
 			<div class="tab_content">
 				<div class="info_tab_content j_tab_content" style="display:block;">
                     <div class="info">
-                        <p class="username">Nic Zhao</p>
+                        <p class="username">{{nickname}}</p>
                         <p class="descript">用币来赞是最好的支持</p>
                         <div class="code">
                             <img src="images/code.jpg">
@@ -58,21 +119,21 @@
                     <div class="tab_form">
                         <div class="input_group flex">
                             <label for="">发送地址</label>
-                            <input type="text" placeholder="请输入要发送的BTC地址">
+                            <input type="text" placeholder="请输入要发送的BTC地址" class="input_address">
                             <i class="code_input"></i>
                         </div>
                         <div class="input_group flex">
                             <label for="">发送数量</label>
-                            <input type="text" value="0.234" placeholder="请输入要发送的数量">
+                            <input type="text" value="0.234" placeholder="请输入要发送的数量" class="input_number">
                         </div>
                         <div class="bit_tab font_Semibold">
                             <img src="images/logo_big.png" alt="">
-                            <span>0.3445245</span>
+                            <span class="j_money">0.3445245</span>
                         </div>
                         <p class="set_tab">
                             请先设置提币密码，<a href="">去设置</a>
                         </p>
-                        <button class="submit_tab">确认发送</button>
+                        <button class="submit_tab j_submit">确认发送</button>
                     </div>
                 </div>
 			</div>
