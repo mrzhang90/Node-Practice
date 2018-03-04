@@ -1,9 +1,6 @@
-const bitcoin = require('bitcoinjs-lib');
-const bigi = require('bigi');
-const axios = require('axios')
-let outMoney=function(data){
+let outMoney=function(data,axios){
 	return new Promise((resolve,reject)=>{
-		axios.post('http://192.168.1.104/outMoney.php?address='+data.address+'&number='+data.input_number)
+		axios.post('http://192.168.1.105/outMoney.php?'+data)
 			.then(function (response) {
 				resolve(response.data)
 			})

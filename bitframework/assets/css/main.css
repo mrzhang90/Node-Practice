@@ -245,6 +245,7 @@ input::-webkit-input-placeholder{font-size:0.75em;color: #9A9A9A;}
      width:0.56rem;
      height:0.56rem;
      background:url(../images/code1.jpg) no-repeat;
+     background-size:cover;
 }
  .bit_tab{
      line-height: 2.8533333333333335rem;

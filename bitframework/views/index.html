@@ -21,14 +21,14 @@
                     return false;
                 }
                 $(this).parent().removeClass('error');
-                var hl=0.13;
-                $('.j_money').text((val * hl).toFixed(2));
+                // var hl=0.13;
+                // $('.j_money').text((val * hl).toFixed(2));
             })
             $('.input_number').on('blur',function(){
                 regNumber('input_number')
             })
             $('.input_address').on('input',function(){
-                regNumber('input_address')
+                regAddress('input_address')
             })
             $('.j_submit').on('click',function(){
                 if(regAddress('input_address') && regNumber('input_number')){
@@ -39,18 +39,25 @@
                             'number':$('.input_number').val()
                         },
                         type:'post',
+                        dataType:'json',
                         success:function(result){
-                            console.log(result)
+                            if(result.status==0){
+                                alert(result.msg)
+                            }else if(result.status==-2){
+                                $('.j_setPassword').show();
+                                error_msg(result.msg)
+                            }else{
+                                error_msg(result.msg)
+                            }
                         },
-                        error:function(){
-                            console.log('error')
-                        }
+                        error:ajax.error
                     })
                 }
             })
             function regAddress(element){
                 var ele=$('.'+element);
                 if(ele.val()==''){
+                    ele.focus();
                     ele.parent().addClass('error')
                     return false;
                 }else{
@@ -61,6 +68,7 @@
             function regNumber(element){
                 var ele=$('.'+element);
                 if(ele.val()=='' || Number(ele.val())<=0 || ele.val() > bit_number){
+                    ele.focus();
                     ele.parent().addClass('error')
                     return false;
                 }else{
@@ -85,7 +93,7 @@
 		<div class="box1">
             <p>总资产</p>
             <div>
-                <span>{{bit_money || 0}}</span>
+                <span>{{bit_number || 0}}</span>
             </div>
         </div>
 		<div class="box2">
@@ -96,10 +104,10 @@
 			<div class="tab_content">
 				<div class="info_tab_content j_tab_content" style="display:block;">
                     <div class="info">
-                        <p class="username">{{nickname}}</p>
+                        <p class="username">Nic Zhao</p>
                         <p class="descript">用币来赞是最好的支持</p>
                         <div class="code">
-                            <img src="images/code.jpg">
+                            <img src="images/code.png">
                             <p>长按二维码，看看谁在用币赞</p>
                         </div>
                     </div>            
@@ -112,6 +120,48 @@
                         <div class="btns flex">
                             <button>复制地址</button>
                             <button>保存图片</button>
+                        </div>
+                    </div>
+                    <div class="log_box2">
+                        <div class="title_log flex">
+                            <span>即将到账的转账</span>
+                            <a href="">刷新</a>
+                        </div>
+                        <div>
+                            <div class="noLog" style="display: none;">
+                                <img src="images/noLog.png" alt="">
+                                <p>暂无记录</p>
+                            </div>
+                            <ul class="list_log">
+                                <li class="flex">
+                                    <div class="left_list">
+                                        <span class="font_Semibold">Kold He</span>
+                                        <p>0.1234354445121BTC</p>
+                                    </div>
+                                    <div class="right_list">
+                                        <span>2018.02.12</span>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="left_list">
+                                        <span class="font_Semibold">Kold He</span>
+                                        <p>0.1234354445121BTC</p>
+                                    </div>
+                                    <div class="right_list">
+                                        <span>2018.02.12</span>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="left_list">
+                                        <span class="font_Semibold">Kold He</span>
+                                        <p>0.1234354445121BTC</p>
+                                    </div>
+                                    <div class="right_list">
+                                        <span>2018.02.12</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="more" style="display:none;">点击加载更多</p>
                         </div>
                     </div>
                 </div>
@@ -128,57 +178,57 @@
                         </div>
                         <div class="bit_tab font_Semibold">
                             <img src="images/logo_big.png" alt="">
-                            <span class="j_money">0.3445245</span>
+                            <span class="j_money">{{bit_number || 0}}</span>
                         </div>
-                        <p class="set_tab">
-                            请先设置提币密码，<a href="">去设置</a>
+                        <p class="j_setPassword set_tab" style="display:none;">
+                            请先设置提币密码，<a href="/setPassword">去设置</a>
                         </p>
                         <button class="submit_tab j_submit">确认发送</button>
                     </div>
+                    <div class="log_box2">
+                        <div class="title_log flex">
+                            <span>正在处理中的转账</span
+                            <a href="">刷新</a>
+                        </div>
+                        <div>
+                            <div class="noLog" style="display: none;">
+                                <img src="images/noLog.png" alt="">
+                                <p>暂无记录</p>
+                            </div>
+                            <ul class="list_log">
+                                <li class="flex">
+                                    <div class="left_list">
+                                        <span class="font_Semibold">Kold He</span>
+                                        <p>0.1234354445121BTC</p>
+                                    </div>
+                                    <div class="right_list">
+                                        <span>2018.02.12</span>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="left_list">
+                                        <span class="font_Semibold">Kold He</span>
+                                        <p>0.1234354445121BTC</p>
+                                    </div>
+                                    <div class="right_list">
+                                        <span>2018.02.12</span>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="left_list">
+                                        <span class="font_Semibold">Kold He</span>
+                                        <p>0.1234354445121BTC</p>
+                                    </div>
+                                    <div class="right_list">
+                                        <span>2018.02.12</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="more" style="display:none;">点击加载更多</p>
+                        </div>
+                    </div>
                 </div>
 			</div>
-            <div class="log_box2">
-                <div class="title_log flex">
-                    <span>即将到账</span>
-                    <a href="">刷新</a>
-                </div>
-                <div>
-                    <div class="noLog" style="display: none;">
-                        <img src="images/noLog.png" alt="">
-                        <p>暂无记录</p>
-                    </div>
-                    <ul class="list_log">
-                        <li class="flex">
-                            <div class="left_list">
-                                <span class="font_Semibold">Kold He</span>
-                                <p>0.1234354445121BTC</p>
-                            </div>
-                            <div class="right_list">
-                                <span>2018.02.12</span>
-                            </div>
-                        </li>
-                        <li class="flex">
-                            <div class="left_list">
-                                <span class="font_Semibold">Kold He</span>
-                                <p>0.1234354445121BTC</p>
-                            </div>
-                            <div class="right_list">
-                                <span>2018.02.12</span>
-                            </div>
-                        </li>
-                        <li class="flex">
-                            <div class="left_list">
-                                <span class="font_Semibold">Kold He</span>
-                                <p>0.1234354445121BTC</p>
-                            </div>
-                            <div class="right_list">
-                                <span>2018.02.12</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <p class="more" style="display:none;">点击加载更多</p>
-                </div>
-            </div>
 		</div>
 	</section>
 </body>

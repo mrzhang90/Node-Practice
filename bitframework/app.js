@@ -3,16 +3,12 @@ const render = require('koa-swig');
 const serve = require('koa-static');
 const router = require('koa-simple-router');
 const bodyparser = require('koa-bodyparser')
+const session = require('koa-session');
 const co = require('co');
 const path = require('path');
 const _ = require('lodash');
-const bitcoin = require('bitcoinjs-lib')
-const bigi = require('bigi')
 const app=new Koa();
-const getOpenid = require('./models/getOpenid')
-const getUserInfo = require('./models/getUserInfo')
-const insertUserInfo = require('./models/insertUserInfo')
-const model_outMoney = require('./models/outMoney')
+const controller = require('./controller/controller')
 let config={
 	'port':'8080',
 	//静态模板目录
@@ -31,61 +27,21 @@ app.context.render = co.wrap(render({
 }));
 app.use(serve(config.staticDir));//配置静态文件
 app.use(bodyparser());//把 post 数据处理到 request.body 中，注意不是 response.body 所以不能通过 ctx 直接拿到
-const indexController = {
-	index() {
-		return async (ctx, next) => {
-			let userinfo;
-			if(ctx.cookies.get('userinfo')){
-				userinfo = JSON.parse(new Buffer(ctx.cookies.get('userinfo'), 'base64').toString())
-			}else{
-				let wx_userinfo = await getOpenid.getOpen();
-				let users = await getUserInfo.getUser(wx_userinfo.openid);
-				if(users.data.length<=0){
-					userinfo=wx_userinfo;
-					await insertUserInfo.insertUserInfo(wx_userinfo.openid,wx_userinfo.nickname);
-				}else{
-					userinfo=users.data[0];
-				}
-				ctx.cookies.set('userinfo', new Buffer(JSON.stringify(userinfo)).toString('base64'));
-			}
-			ctx.body = await ctx.render('index',userinfo);
-		}
-	},
-	info() {
-		return async (ctx, next) => {
-			ctx.body = await ctx.render('info');
-		}
-	},
-	sendMoney() {
-		return async (ctx, next) => {
-			ctx.body = await ctx.render('sendMoney');
-		}
-	},
-	setPassword() {
-		return async (ctx, next) => {
-			ctx.body = await ctx.render('setPassword');
-		}
-	},
-	outMoney(){
-		return async (ctx, next) => {
-			let data = ctx.request.body
-			
-    		ctx.body = await model_outMoney.outMoney(data)
-		}
-	}
-}
-const controllerInit = {
-	getAllrouters(app, router) {
-		app.use(router(_ => {
-			_.get('/', indexController.index());
-			_.get('/info', indexController.info());
-			_.get('/sendMoney', indexController.sendMoney());
-			_.get('/setPassword', indexController.setPassword());
-			_.post('/outMoney', indexController.outMoney());
-		}))
-	}
+app.keys = ['zhang guang sen'];
+const CONFIG = {
+  key: 'koa:sess', /** (string) cookie key (default is koa:sess) */
+  /** (number || 'session') maxAge in ms (default is 1 days) */
+  /** 'session' will result in a cookie that expires when session/browser is closed */
+  /** Warning: If a session cookie is stolen, this cookie will never expire */
+  maxAge: 86400000,
+  overwrite: true, /** (boolean) can overwrite or not (default true) */
+  httpOnly: true, /** (boolean) httpOnly or not (default true) */
+  signed: true, /** (boolean) signed or not (default true) */
+  rolling: false, /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */
+  renew: false, /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*/
 };
-controllerInit.getAllrouters(app,router)
+app.use(session(CONFIG, app));
+controller.controllerInit.getAllrouters(app,router)
 //监听端口
 app.listen(config.port,()=>{
 	console.log('ydVueSystem listening on port %s',config.port);

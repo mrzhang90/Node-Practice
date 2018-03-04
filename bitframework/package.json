@@ -16,10 +16,12 @@
     "cookies": "^0.7.1",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
+    "koa-session": "^5.8.1",
     "koa-simple-router": "^0.2.0",
     "koa-static": "^4.0.2",
     "koa-swig": "^2.2.1",
     "lodash": "^4.17.5",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "querystring": "^0.2.0"
   }
 }
