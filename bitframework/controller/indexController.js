@@ -1,4 +1,7 @@
 const axios = require('axios')
+const fs = require('fs'); 
+const path = require('path');
+const mineType = require('mime-types'); 
 const querystring = require("querystring");
 const getWxInfo = require('../models/getWxInfo')
 const getUserInfo = require('../models/getUserInfo')
@@ -21,6 +24,22 @@ let controller = {
 				ctx.cookies.set('userinfo', new Buffer(JSON.stringify(userinfo)).toString('base64'));
 			}
 			ctx.body = await ctx.render('index',userinfo);
+		}
+	},
+	downloadImg(){
+		return async (ctx, next) => {
+			let data = ctx.query.codeImg.split('/')
+			var fileName = data[data.length-1];
+			let filePath=path.join(__dirname,'../assets/images/',fileName)
+			var stats = fs.statSync(filePath); 
+			if(stats.isFile()){
+				ctx.type="application/octet-stream"
+				ctx.attachment(fileName);
+				ctx.length=stats.size
+				ctx.body=fs.readFileSync(filePath);
+			} else {
+				ctx.status=404
+			}
 		}
 	},
 	info() {

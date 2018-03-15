@@ -1,7 +1,7 @@
 let update ={
 	updatePassword(data,axios){
 		return new Promise((resolve,reject)=>{
-			axios.get('http://192.168.1.105/updatePassword.php?'+data)
+			axios.get('http://43.255.106.169:8081/updatePassword.php?'+data)
 			  .then(function (response) {
 			  	resolve(response.data)
 			  })

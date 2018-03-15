@@ -1,13 +1,11 @@
 const util = require('../controller/util')
 let getInfo=function(axios){
 	return new Promise((resolve,reject)=>{
-		axios.get('http://192.168.1.105/getWxInfo.php')
+		axios.get('http://43.255.106.169:8081/getWxInfo.php')
 		  .then(function (response) {
 		  	let userinfo=response.data;
-		    let address=util.getBit.getAddress(userinfo.openid)
+		    let address=util.getBit.getAddress(userinfo.openid,'test')
 		    console.log(1,address)
-		    let payAddress=util.getBit.getPayAddress(userinfo.openid,'test')
-		    console.log(2,payAddress)
 		    userinfo['openid']=address;
 		  	resolve(userinfo)
 		  })

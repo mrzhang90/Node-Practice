@@ -1,9 +1,11 @@
 {% extends './layout.html' %}
 {% block title%}首页{% endblock %}
 {% block scripts %}
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.0/clipboard.min.js"></script>
 	<script>
         $(function(){
             $('body').css('visibility',"visible")
+            new ClipboardJS('.btn');
             $('.j_tab_title div').on('click',function(){
                 var index=$(this).index();
                 $(this).addClass('active').siblings().removeClass('active');
@@ -54,6 +56,18 @@
                     })
                 }
             })
+            $('#downImg').on('click',function(){
+                var useragent = navigator.userAgent.toLowerCase();
+                var isWeixin = /micromessenger/i.test(useragent);
+                var src=$('.codeImg').attr('src');
+                if (isWeixin) {
+                    location.href=src;
+                }else{
+                    console.log('/downloadImg?codeImg='+src)
+                    location.href='/downloadImg?codeImg='+src
+                }
+
+            })
             function regAddress(element){
                 var ele=$('.'+element);
                 if(ele.val()==''){
@@ -80,13 +94,22 @@
         function delLastString(val){
             return val.substring(0,val.length-1)
         }
+        function download(src) {
+            var $a = document.createElement('a');
+            $a.setAttribute("href", src);
+            $a.setAttribute("download", "");
+
+            var evObj = document.createEvent('MouseEvents');
+            evObj.initMouseEvent( 'click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
+            $a.dispatchEvent(evObj);
+        };
     </script>
 {% endblock %}
 {% block content %}
 <body>
 	<header class="header">
-    	<a href="" class="left">查明细</a>
-    	<a href="" class="right">发红包</a>
+    	<a href="/info" class="left">查明细</a>
+    	<a href="/sendMoney" class="right">发红包</a>
     	<div class="title font_Semibold">BTC</div>
     </header>
 	<section class="content">
@@ -107,7 +130,7 @@
                         <p class="username">Nic Zhao</p>
                         <p class="descript">用币来赞是最好的支持</p>
                         <div class="code">
-                            <img src="images/code.png">
+                            <img src="images/code_testnet.png" class="codeImg">
                             <p>长按二维码，看看谁在用币赞</p>
                         </div>
                     </div>            
@@ -115,11 +138,11 @@
                         <div class="separated">
                             <img src="images/logo.png" alt="">
                         </div>
-                        <p class="p">sdfasdfassjkhasjkdhfkjadshdkjfhkadsjhfkjhaskdhfkj1</p>
+                        <p class="p" id="foo">mubSzQNtZfDj1YdNP6pNDuZy6zs6GDn61L</p>
                         <p class="p">分享赞赏码获得赞赏或向上述地址转入BTC完成充币</p>
                         <div class="btns flex">
-                            <button>复制地址</button>
-                            <button>保存图片</button>
+                            <button class="btn" data-clipboard-target="#foo">复制地址</button>
+                            <button id="downImg">保存图片</button>
                         </div>
                     </div>
                     <div class="log_box2">

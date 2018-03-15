@@ -44,5 +44,5 @@ app.use(session(CONFIG, app));
 controller.controllerInit.getAllrouters(app,router)
 //监听端口
 app.listen(config.port,()=>{
-	console.log('ydVueSystem listening on port %s',config.port);
+	console.log('listening on port %s',config.port);
 })
