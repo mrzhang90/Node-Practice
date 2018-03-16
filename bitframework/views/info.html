@@ -33,60 +33,17 @@
                     <p>暂无记录</p>
                 </div>
                 <ul class="list_log">
-                    <li class="flex">
-                        <div class="left_list">
-                            <span class="font_Semibold">Kold He</span>
-                            <p>0.1234354445121BTC</p>
-                        </div>
-                        <div class="right_list">
-                            <span>2018.02.12</span>
-                        </div>
-                    </li>
-                    <li class="flex">
-                        <div class="left_list">
-                            <span class="font_Semibold">Kold He</span>
-                            <p>0.1234354445121BTC</p>
-                        </div>
-                        <div class="right_list">
-                            <span>2018.02.12</span>
-                        </div>
-                    </li>
-                    <li class="flex">
-                        <div class="left_list">
-                            <span class="font_Semibold">Kold He</span>
-                            <p>0.1234354445121BTC</p>
-                        </div>
-                        <div class="right_list">
-                            <span>2018.02.12</span>
-                        </div>
-                    </li>
-                    <li class="flex">
-                        <div class="left_list">
-                            <span class="font_Semibold">Kold He</span>
-                            <p>0.1234354445121BTC</p>
-                        </div>
-                        <div class="right_list">
-                            <span>2018.02.12</span>
-                        </div>
-                    </li>
-                    <li class="flex">
-                        <div class="left_list">
-                            <span class="font_Semibold">Kold He</span>
-                            <p>0.1234354445121BTC</p>
-                        </div>
-                        <div class="right_list">
-                            <span>2018.02.12</span>
-                        </div>
-                    </li>
-                    <li class="flex">
-                        <div class="left_list">
-                            <span class="font_Semibold">Kold He</span>
-                            <p>0.1234354445121BTC</p>
-                        </div>
-                        <div class="right_list">
-                            <span>2018.02.12</span>
-                        </div>
-                    </li>
+                    {% for data in datas %}
+                        <li class="flex">
+                            <div class="left_list">
+                                <span class="font_Semibold">Kold He</span>
+                                <p>{{data.number}}</p>
+                            </div>
+                            <div class="right_list">
+                                <span>2018.02.12</span>
+                            </div>
+                        </li>
+                    {% endfor %}
                 </ul>
                 <p class="more" style="display:block;">点击加载更多</p>
             </div>

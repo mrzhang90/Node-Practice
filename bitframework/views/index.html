@@ -66,7 +66,6 @@
                     console.log('/downloadImg?codeImg='+src)
                     location.href='/downloadImg?codeImg='+src
                 }
-
             })
             function regAddress(element){
                 var ele=$('.'+element);
@@ -94,21 +93,12 @@
         function delLastString(val){
             return val.substring(0,val.length-1)
         }
-        function download(src) {
-            var $a = document.createElement('a');
-            $a.setAttribute("href", src);
-            $a.setAttribute("download", "");
-
-            var evObj = document.createEvent('MouseEvents');
-            evObj.initMouseEvent( 'click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
-            $a.dispatchEvent(evObj);
-        };
     </script>
 {% endblock %}
 {% block content %}
 <body>
 	<header class="header">
-    	<a href="/info" class="left">查明细</a>
+    	<a href="/getDetails" class="left">查明细</a>
     	<a href="/sendMoney" class="right">发红包</a>
     	<div class="title font_Semibold">BTC</div>
     </header>

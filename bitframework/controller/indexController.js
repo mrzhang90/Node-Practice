@@ -3,9 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const mineType = require('mime-types'); 
 const querystring = require("querystring");
-const getWxInfo = require('../models/getWxInfo')
-const getUserInfo = require('../models/getUserInfo')
-const insertUserInfo = require('../models/insertUserInfo')
+const model_insert = require('../models/insertModel')
+const model_update = require('../models/updateModel')
+const model_select = require('../models/selectModel')
 let controller = {
 	index() {
 		return async (ctx, next) => {
@@ -13,11 +13,11 @@ let controller = {
 			if(ctx.cookies.get('userinfo')){
 				userinfo = JSON.parse(new Buffer(ctx.cookies.get('userinfo'), 'base64').toString())
 			}else{
-				let wx_userinfo = await getWxInfo.getInfo(axios);
-				let users = await getUserInfo.getUser(wx_userinfo.openid);
+				let wx_userinfo = await model_select.select.getWxInfo(axios);
+				let users = await model_select.select.getUser(wx_userinfo.openid,axios);
 				if(users.data.length<=0){
 					userinfo=wx_userinfo;
-					await insertUserInfo.insertUserInfo(wx_userinfo.openid,wx_userinfo.nickname);
+					await model_insert.insert.insertUserInfo(wx_userinfo.openid,wx_userinfo.nickname);
 				}else{
 					userinfo=users.data[0];
 				}
@@ -42,9 +42,21 @@ let controller = {
 			}
 		}
 	},
-	info() {
+	getDetails() {
 		return async (ctx, next) => {
-			ctx.body = await ctx.render('info');
+			let data;
+			if(ctx.cookies.get('userinfo')){
+				let userinfo = JSON.parse(new Buffer(ctx.cookies.get('userinfo'), 'base64').toString())
+				let result=await model_select.select.getDetails(userinfo['uid'],axios)
+				if(result.status==0){
+					data=result.data;
+				}
+			}else{
+				ctx.response.redirect('/',data);
+			}
+			console.log(data)
+			// {authors: ['Paul', 'Jim', 'Jane']}
+			ctx.body = await ctx.render('info',{datas:data});
 		}
 	},
 	sendMoney() {
@@ -64,19 +76,25 @@ let controller = {
 			let data = ctx.request.body
 			let userinfo=JSON.parse(new Buffer(ctx.cookies.get('userinfo'), 'base64').toString());
 			data['openid']=userinfo.openid;
-
-			//查询支付密码，是否为空
-			let isPayPassword = await model_select.select.getPayPassword(data['openid'],axios);
-			if(isPayPassword.status==0){
-	    		ctx.body = await model_outMoney.outMoney(querystring.stringify(data),axios)
-			}else if(isPayPassword.status==-2){
+			//-1支付密码为空 -2提币失败 0 OK
+			let result=await model_update.update.outMoney(querystring.stringify(data),axios);
+			if(result.status==-2){
 				ctx.session.isPayPassword = -2;
-				isPayPassword.msg='请设置提币密码';
-    			ctx.body = await isPayPassword
-			}else{
-				isPayPassword.msg='请重新尝试';
-    			ctx.body = await isPayPassword
+			}
+			ctx.body = result;
+		}
+	},
+	updatePassword(){
+		return async (ctx, next) => {
+			let data = ctx.request.body
+			let userinfo=JSON.parse(new Buffer(ctx.cookies.get('userinfo'), 'base64').toString());
+			data['openid']=userinfo.openid;
+    		let result = await model_update.update.updatePassword(querystring.stringify(data),axios);
+    		console.log(result.data);
+    		if(result.data==0){
+    			ctx.session.isPayPassword = 0;
     		}
+    		ctx.body = result;
 		}
 	}
 }

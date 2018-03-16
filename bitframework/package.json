@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "",
-    "start": "supervisor start ./app.js",
-    "start:build": "forever start ./app.js"
+    "start": "cross-env NODE_ENV=development supervisor start ./app.js",
+    "start:build": "cross-env NODE_ENV=production forever start ./app.js"
   },
   "author": "",
   "license": "ISC",
