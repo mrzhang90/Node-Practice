@@ -83,7 +83,6 @@ input::-webkit-input-placeholder{font-size:0.75em;color: #9A9A9A;}
 }
 .box2{
 	margin-top:0.42666rem;
-    background-color:#fff;
     border-radius: 0 0 0.10666666666666667rem 0.10666666666666667rem;
 }
 .tab_title{
@@ -108,6 +107,7 @@ input::-webkit-input-placeholder{font-size:0.75em;color: #9A9A9A;}
 }
  
 .tab_content{
+    background-color: #fff;
 }
 .info_tab_content{
 }
