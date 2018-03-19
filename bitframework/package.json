@@ -6,7 +6,7 @@
   "scripts": {
     "test": "",
     "start": "cross-env NODE_ENV=development supervisor start ./app.js",
-    "start:build": "cross-env NODE_ENV=production forever start ./app.js"
+    "start:prod": "cross-env NODE_ENV=production forever start ./app.js"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "lodash": "^4.17.5",
     "mime-types": "^2.1.18",
     "path": "^0.12.7",
+    "qrcode": "^1.2.0",
     "querystring": "^0.2.0"
   }
 }

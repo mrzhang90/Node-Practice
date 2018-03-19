@@ -126,12 +126,14 @@ input::-webkit-input-placeholder{font-size:0.75em;color: #9A9A9A;}
      font-size: 1.166em;
      color: #1B1B1B;
 }
- .info_tab_content .code{
+.info_tab_content .code{
      padding-top:1.166em;
      line-height: 0.9333333333333333rem;
      color: #1A1A1A;
 }
- .info_tab_content .address{
+.info_tab_content .codeImg{
+     width:4.5rem;
+     height:4.5rem;
 }
  .info_tab_content .separated{
      margin-bottom:0.44rem;

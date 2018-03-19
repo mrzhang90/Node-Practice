@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const mineType = require('mime-types'); 
 const querystring = require("querystring");
+const QRCode = require('qrcode')
+const util = require('../configs/util')
 const model_insert = require('../models/insertModel')
 const model_update = require('../models/updateModel')
 const model_select = require('../models/selectModel')
@@ -13,14 +15,25 @@ let controller = {
 			if(ctx.cookies.get('userinfo')){
 				userinfo = JSON.parse(new Buffer(ctx.cookies.get('userinfo'), 'base64').toString())
 			}else{
+				let code=util.util.getAddress('niczhaozzzzzzzzzzzzzzzzzzzzzzzzz')
+				const generateQR = async text => {
+				  try {
+				    return await QRCode.toDataURL(text)
+				  } catch (err) {
+				    console.error(err)
+				  }
+				}
+				let codeUrl=await generateQR(code)
 				let wx_userinfo = await model_select.select.getWxInfo(axios);
 				let users = await model_select.select.getUser(wx_userinfo.openid,axios);
 				if(users.data.length<=0){
-					userinfo=wx_userinfo;
+					userinfo=Object.assign(wx_userinfo,userinfo);
 					await model_insert.insert.insertUserInfo(wx_userinfo.openid,wx_userinfo.nickname);
 				}else{
-					userinfo=users.data[0];
+					userinfo=Object.assign(users.data[0],userinfo);;
 				}
+				userinfo['code']=code;
+				userinfo['codeUrl']=await util.util.codeImg(codeUrl,fs,path);
 				ctx.cookies.set('userinfo', new Buffer(JSON.stringify(userinfo)).toString('base64'));
 			}
 			ctx.body = await ctx.render('index',userinfo);
@@ -30,7 +43,7 @@ let controller = {
 		return async (ctx, next) => {
 			let data = ctx.query.codeImg.split('/')
 			var fileName = data[data.length-1];
-			let filePath=path.join(__dirname,'../assets/images/',fileName)
+			let filePath=path.join(__dirname,'../assets/',fileName)
 			var stats = fs.statSync(filePath); 
 			if(stats.isFile()){
 				ctx.type="application/octet-stream"

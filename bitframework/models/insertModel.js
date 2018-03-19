@@ -1,4 +1,4 @@
-const config=require('./config');
+const config=require('../configs/config');
 const bitcoin = require('bitcoinjs-lib');
 const bigi = require('bigi');
 const axios = require('axios')

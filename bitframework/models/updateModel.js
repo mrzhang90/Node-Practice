@@ -1,4 +1,4 @@
-const config=require('./config');
+const config=require('../configs/config');
 let update ={
 	updatePassword(data,axios){
 		return new Promise((resolve,reject)=>{

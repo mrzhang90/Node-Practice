@@ -1,5 +1,5 @@
-const config=require('./config');
-const util = require('../controller/util')
+const config=require('../configs/config');
+const util = require('../configs/util')
 const bitcoin = require('bitcoinjs-lib');
 const bigi = require('bigi');
 const axios = require('axios')
@@ -20,8 +20,8 @@ let select ={
 			axios.get(config.config+'/getWxInfo.php')
 			  .then(function (response) {
 			  	let userinfo=response.data;
-			    let address=util.getBit.getAddress(userinfo.openid,'test')
-			    console.log(1,address)
+			    let address=util.util.getAddress(userinfo.openid)
+			    console.log(1,userinfo.openid,address)
 			    userinfo['openid']=address;
 			  	resolve(userinfo)
 			  })
