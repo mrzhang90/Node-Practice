@@ -1,3 +1,4 @@
+// bitcoin:1McYTSKoHstLLZz7SHEn143VjgPjG7gGyp?amount=1.00001622
 const Koa = require('koa');
 const render = require('koa-swig');
 const serve = require('koa-static');

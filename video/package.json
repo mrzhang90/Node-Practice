@@ -1,0 +1,24 @@
+{
+  "name": "video",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=development supervisor start ./app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "co": "^4.6.0",
+    "fs": "^0.0.1-security",
+    "koa": "^2.5.0",
+    "koa-simple-router": "^0.2.0",
+    "koa-static": "^4.0.2",
+    "koa-swig": "^2.2.1",
+    "mime-types": "^2.1.18",
+    "path": "^0.12.7",
+    "querystring": "^0.2.0"
+  }
+}
