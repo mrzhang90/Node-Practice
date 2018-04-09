@@ -17,7 +17,8 @@ app.context.render = co.wrap(render({
   autoescape: true,
   cache: 'memory', // disable, set to false
   ext: 'html',
-  writeBody: false
+  writeBody: false,
+  varControls: ["[[","]]"]//修改swig模板的默认标签，避免跟vue的标签冲突
 }));
 log4js.configure({
   appenders: { mrzhang: { type: 'file', filename: './logs/mrzhang.log' } },
@@ -30,7 +31,7 @@ controllInit.getAllrouters(app,router);
 app.use(serve(config.staticDir));//配置静态文件
 //监听端口
 app.listen(config.port,()=>{
-	console.log('ydVueSystem listening on port %s',config.port);
+	console.log('VueSystem listening on port %s',config.port);
 })
 
 // api测试的时候，supertest 文件，就把app暴露出去 

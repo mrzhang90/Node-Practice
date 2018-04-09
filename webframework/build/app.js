@@ -53,7 +53,8 @@ app.context.render = _co2.default.wrap((0, _koaSwig2.default)({
   autoescape: true,
   cache: 'memory', // disable, set to false
   ext: 'html',
-  writeBody: false
+  writeBody: false,
+  varControls: ["[[", "]]"] //修改swig模板的默认标签，避免跟vue的标签冲突
 }));
 _log4js2.default.configure({
   appenders: { mrzhang: { type: 'file', filename: './logs/mrzhang.log' } },
@@ -66,7 +67,7 @@ _controllInit2.default.getAllrouters(app, _koaSimpleRouter2.default);
 app.use((0, _koaStatic2.default)(_config2.default.staticDir)); //配置静态文件
 //监听端口
 app.listen(_config2.default.port, () => {
-  console.log('ydVueSystem listening on port %s', _config2.default.port);
+  console.log('VueSystem listening on port %s', _config2.default.port);
 });
 
 // api测试的时候，supertest 文件，就把app暴露出去 

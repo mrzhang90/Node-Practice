@@ -36,6 +36,11 @@ const options = {
 			template:'src/web/widget/myfooter/footer.html',//原始的要去读的文件
 			inject:false//不要默认的把js插进来，我自定义 控制模板的顺序
 		}),
+		new HtmlWebpackPlugin({
+			filename: '../widget/content.html',//要去生成的文件
+			template:'src/web/widget/mycontent/content.html',//原始的要去读的文件
+			inject:false//不要默认的把js插进来，我自定义 控制模板的顺序
+		}),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'dev')
 		}),
