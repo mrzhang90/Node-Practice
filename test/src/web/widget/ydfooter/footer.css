@@ -1,6 +1,14 @@
-.yd-footer{
-	height:150px;
-	line-height:150px;
-	background: orange;
-	text-align: center;
+:root {
+    --mainColor: rebeccapurple;
+}
+
+.yd-footer {
+    height: 150px;
+    line-height: 150px;
+    background: var(--mainColor);
+    text-align: center;
+    color: white;
+    span {
+        color: white;
+    }
 }

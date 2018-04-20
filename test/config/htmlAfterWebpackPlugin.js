@@ -1,41 +1,47 @@
+// htmlAfterWebpackPlugin.js 
+/*
+ *@Des  开发一个插件 帮助我们把css-js插入到对应的swig模板
+ *
+ */
+const cheerio = require('cheerio')
 function htmlAfterWebpackPlugin(options) {}
 /*
-*arrs:静态资源下的数组
-*type:文件类型
-*/
-function assetsHelper(assets){
+ *1.静态资源的一个数组
+ *2.type 文件类型
+ */
+function assetsHelper(arrs, type) {
 	let result={
-		cssarr:[],
-		jsarr:[]
+		jsstr:[],
+		cssstr:[]
 	}
-	const dir={
-		css: (item) => `<link rel="stylesheet" href="${item}"/>`,
-		js: (item) => `<script src="${item}"></script>`
+	const dir = {
+		js: item => `<script src="${item}"></script>`,
+		css: item => `<link rel="stylesheet" href="${item}">`
 	}
-	for(let data of assets.css){
-		result.cssarr.push(dir.css(data))
+	for(let jsdata of arrs.js){
+		result.jsstr.push(dir.js(jsdata))
 	}
-	for(let data of assets.css){
-		result.jsarr.push(dir.js(data))
+	for(let cssdata of arrs.css){
+		result.cssstr.push(dir.css(cssdata));
 	}
+	// const result = dir[type] && dir[type]();
 	return result;
 }
 htmlAfterWebpackPlugin.prototype.apply = function(compiler) {
-	// ... 
 	compiler.plugin('compilation', function(compilation) {
 		compilation.plugin('html-webpack-plugin-before-html-processing', function(htmlPluginData, callback) {
-			// htmlPluginData.html
-			var _html=htmlPluginData.html;
-			var assets=htmlPluginData.assets;
-			// var css=assetsHelper['css'](assets.css)
-			// var js=assetsHelper['js'](assets.js)
-			const result=assetsHelper(assets)
-			console.log('/n---------/n')
-			console.log('css:',result.cssarr.join(''));
-			console.log('/n---------/n')
-			console.log('css:',result.jsarr.join(''));
-			console.log('/n---------/n')
-			htmlPluginData.html=_html;
+			let _html = htmlPluginData.html; //html文件
+			let result=assetsHelper(htmlPluginData.assets)//资源文件
+			// console.log(htmlPluginData.html)
+			// const $=cheerio.load(_html);
+			// console.log('测试结果',$('#js-block-style').html());
+			//layout公用模板，一般都是指定的公用CDN资源，
+			let isBase = htmlPluginData.outputName.includes('./layout.html');
+			if(!isBase){
+				_html=_html.replace('{{css}}',result.cssstr.join(""));			
+				_html=_html.replace('{{js}}',result.jsstr.join(""));	
+			}		
+			htmlPluginData.html = _html;
 			callback(null, htmlPluginData);
 		});
 	});
